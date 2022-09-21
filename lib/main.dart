@@ -1,21 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/home/home_screen.dart';
+import 'package:news_app/test.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-     routes: {
-       HomeScreen.RouteName:(_)=> HomeScreen(),
-
-     },
+      theme: ThemeData(
+        //scaffoldBackgroundColor: Colors.white,
+        primarySwatch: Colors.green,
+      ),
+      routes: {
+        HomeScreen.RouteName: (_) => HomeScreen(),
+        Test.RouteName: (_) => Test(),
+      },
       initialRoute: HomeScreen.RouteName,
     );
   }

@@ -1,4 +1,4 @@
-import '../api/SoursesResponse.dart';
+import 'sources/SoursesResponse.dart';
 
 /// status : "ok"
 /// totalResults : 5937

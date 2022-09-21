@@ -1,17 +1,16 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'package:news_app/api/SoursesResponse.dart';
-import 'package:news_app/home/NewsResponse.dart';
 
+import 'package:http/http.dart' as http;
+import 'package:news_app/home/news/NewsResponse.dart';
+import 'package:news_app/home/news/sources/SoursesResponse.dart';
 
 class ApiManager {
-
   static const String Base_Url = 'newsapi.org';
   static const String apiKey = 'cd0d5145f7e1437d86b43537b06d28a7';
 
-  static Future<SoursesResponse> getNewsSourses() async {
+  static Future<SoursesResponse> getNewsSourses(String CatId) async {
     var uri = Uri.https(Base_Url, '/v2/top-headlines/sources',
-        {"apiKey": apiKey, "category": "sports"});
+        {"apiKey": apiKey, "category": CatId});
     var response = await http.get(uri);
     var responseBody = response.body;
     var json = jsonDecode(responseBody);
